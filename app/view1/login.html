@@ -1,0 +1,50 @@
+<div class="col-md-12" ng-controller="loginCtrl">
+  <p><strong>{{name}}</strong></p>
+
+  <form name="loginForm" ng-submit="formSubmit(formData)" class="form">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input
+          type="text"
+          name="userName"
+          class="form-control"
+          ng-model="formData.userName"
+          placeholder="username"
+        />
+        <div
+          class="text-danger"
+          ng-show="loginForm.userName.$invalid || loginForm.userName.$touched&&!formData.userName "
+        >
+          Please enter user name
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          name="password"
+          type="password"
+          class="form-control"
+          ng-model="formData.password"
+          placeholder="password"
+        />
+        <div
+          class="text-danger"
+          ng-show="loginForm.password.$invalid || loginForm.password.$touched&&!formData.password "
+        >
+          Please enter password
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-success"
+          ng-disabled="!formData.userName || !formData.password"
+        >
+          Login
+        </button>
+        <span class="text-danger" style="color:red">{{ error }}</span>
+      </div>
+    </div>
+  </form>
+</div>

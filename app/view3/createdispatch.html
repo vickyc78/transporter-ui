@@ -1,0 +1,280 @@
+<div class="container-fluid">
+  <div class="panel-content card">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget">
+          <div class="form-elements-sec">
+            <div class="card-header">
+              <h6 class="card-title">{{name}}</h6>
+            </div>
+            <form name="createDispatch" role="form" class="card-body sec">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>shipmentNumber</label>
+                    <span ng-show="true">*</span>
+                    <input
+                      type="number"
+                      name="shipmentNumber"
+                      placeholder="Enter Shipment Number"
+                      id="first"
+                      ng-model="formData.shipmentNumber"
+                      class="form-control"
+                      ng-required="true"
+                    />
+                    <div
+                      class="text-danger"
+                      ng-show="createDispatch.shipmentNumber.$invalid && createDispatch.shipmentNumber.$touched"
+                    >
+                      Please enter shipment Number
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>Source Code</label>
+                    <span ng-show="true">*</span>
+                    <select
+                      name="sourceCode"
+                      id="sourceCode"
+                      class="form-control"
+                      ng-model="formData.sourceCode"
+                      class="form-control"
+                      ng-change="setVariablesEmpty()"
+                    >
+                      <option disabled ng-selected="sourceCode==''" value="">
+                        Select Source Code
+                      </option>
+                      <option
+                        ng-repeat="sourceCode in sourceCodes"
+                        ng-value="sourceCode._id"
+                        >{{sourceCode.code}}</option
+                      >
+                    </select>
+                    <div
+                      class="text-danger"
+                      ng-show="!formData.sourceCode && createDispatch.sourceCode.$touched"
+                    >
+                      Please enter source Code
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>Destination Code </label>
+                    <span ng-show="true">*</span>
+                    <select
+                      name="destinationCode"
+                      id="destinationCode"
+                      class="form-control"
+                      ng-model="formData.destinationCode"
+                      class="form-control"
+                      ng-change="setVariablesEmpty()"
+                    >
+                      <option
+                        disabled
+                        ng-selected="destinationCode==''"
+                        value=""
+                      >
+                        Select Destination Code
+                      </option>
+                      <option
+                        ng-repeat="destinationCode in destinationCodes"
+                        ng-value="destinationCode._id"
+                        >{{destinationCode.code}}</option
+                      >
+                    </select>
+                    <div
+                      class="text-danger"
+                      ng-show="!formData.destinationCode && createDispatch.destinationCode.$touched"
+                    >
+                      Please enter destination Code
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>vehicleNumber</label>
+                    <span ng-show="true">*</span>
+                    <input
+                      type="text"
+                      name="vehicleNumber"
+                      placeholder="MP 09 AB 1234"
+                      id="first"
+                      ng-model="formData.vehicleNumber"
+                      class="form-control"
+                      ng-required="true"
+                    />
+                    <div
+                      class="text-danger"
+                      ng-show="createDispatch.vehicleNumber.$invalid && createDispatch.vehicleNumber.$touched"
+                    >
+                      Please enter vehicle Number
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>Transporter Code</label>
+
+                    <span ng-show="true">*</span>
+                    <select
+                      name="transporterCode"
+                      id="transporterCode"
+                      class="form-control"
+                      ng-model="formData.transporterCode"
+                      class="form-control"
+                      ng-change="setVariablesEmpty()"
+                    >
+                      <option
+                        disabled
+                        ng-selected="transporterCode==''"
+                        value=""
+                      >
+                        Select Ttransporter Code
+                      </option>
+                      <option
+                        ng-repeat="transporterCode in transporterCodes"
+                        ng-value="transporterCode._id"
+                        >{{transporterCode.code}}</option
+                      >
+                    </select>
+                    <div
+                      class="text-danger"
+                      ng-show="!formData.transporterCode && createDispatch.transporterCode.$touched"
+                    >
+                      Please enter Transporter Code
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>Driver Name</label>
+                    <span ng-show="true">*</span>
+                    <input
+                      type="text"
+                      name="driverName"
+                      placeholder="Enter driver Name"
+                      id="first"
+                      ng-model="formData.driverName"
+                      class="form-control"
+                      ng-required="true"
+                    />
+                    <div
+                      class="text-danger"
+                      ng-show="createDispatch.driverName.$invalid && createDispatch.driverName.$touched"
+                    >
+                      Please enter driver Name
+                    </div>
+                    <div
+                      class="text-danger"
+                      ng-show="formData.driverName && formData.driverName.length>50 "
+                    >
+                      Driver name should be less than 50 character
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>Driver MobileNumber</label>
+                    <span ng-show="true">*</span>
+                    <input
+                      type="number"
+                      name="driverMobileNumber"
+                      placeholder="Enter DriverMobile Number"
+                      id="first"
+                      ng-model="formData.driverMobileNumber"
+                      class="form-control"
+                      ng-required="true"
+                    />
+                    <div
+                      class="text-danger"
+                      ng-show="createDispatch.driverMobileNumber.$invalid && createDispatch.driverMobileNumber.$touched"
+                    >
+                      Please enter driver MobileNumber
+                    </div>
+                    <div
+                      class="text-danger"
+                      ng-show="formData.driverMobileNumber && formData.driverMobileNumber.length>10 "
+                    >
+                      Mobile number should be less than 10 digit
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>Start Date</label>
+                    <span ng-show="true">*</span>
+                    <input ng-model="formData.startDate" type="date" />
+                    <div
+                      class="text-danger"
+                      ng-show="createDispatch.startDate.$invalid && createDispatch.startDate.$touched"
+                    >
+                      Please enter start Date
+                    </div>
+                    <div
+                      class="text-danger"
+                      ng-show="formData.startDate && formData.startDate>formData.endDate"
+                    >
+                      start date is not bigger then end date
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group" fields>
+                    <label>End Date</label>
+                    <span ng-show="true">*</span>
+                    <input ng-model="formData.endDate" type="date" />
+                    <div
+                      class="text-danger"
+                      ng-show="createDispatch.endDate.$invalid && createDispatch.endDate.$touched"
+                    >
+                      Please enter End Date
+                    </div>
+                    <div
+                      class="text-danger"
+                      ng-show="formData.endDate && formData.endDate<formData.startDate"
+                    >
+                      end date is not smaller then start date
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-center odd-even-button d-flex justify-content-center"
+              >
+                <div>
+                  <button
+                    ng-if="!editPage"
+                    class="btn btn-default rounded btn-success"
+                    type="submit"
+                    ng-disabled="createDispatch.$invalid"
+                    ng-click="saveDispatch(formData)"
+                    promise-btn="productPromise"
+                  >
+                    Save
+                  </button>
+
+                  <button
+                    ng-if="editPage"
+                    class="btn btn-default rounded btn-success"
+                    type="submit"
+                    ng-disabled="createDispatch.$invalid"
+                    ng-click="updateDispatch(formData)"
+                    promise-btn="productPromise"
+                  >
+                    Update
+                  </button>
+                </div>
+
+                <div class="cancel-btn" ng-click="cancel()">
+                  <button class="btn btn-danger rounded ml20">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
